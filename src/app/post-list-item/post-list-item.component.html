@@ -1,0 +1,15 @@
+
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger':  post.loveIts < 0}">
+	<div [ngStyle]="{color: getColor()}" style="margin-bottom: 25px;">
+		<h3 class="text-left">{{ post.title }}</h3>
+		<h5 class="pull-right" style="margin-top:-2em;">{{ post.created_at | date: 'short' }}</h5>
+		<p class="text-justify">{{ post.content }}</p>
+	</div>
+
+	 <button class="btn btn-success" (click)="compterYes()">Love It</button>
+	 <button class="btn btn-danger" (click)= "compterNo()">Don't love It</button>
+
+	 <span class="pull-right bg-primary" style="padding:7px;" *ngIf="post.loveIts !== 0">{{ post.loveIts }}</span>
+ </li>
