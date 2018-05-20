@@ -7,23 +7,4 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: []
 })
-export class AppComponent {
-
-/* posts:Post[];
- postSubscription: Subscription;
-
- constructor(private postService: PostService) { }
-
-ngOnInit() {
-
-
-    this.postSubscription = this.postService.postsSubject.subscribe(
-      (mesPosts: Post[]) => {
-        this.posts = mesPosts;
-        console.log(this.posts);
-      }
-    );
-    this.postService.emitAppareilSubject();
-  }*/
-
-}
+export class AppComponent {}

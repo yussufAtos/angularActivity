@@ -10,12 +10,9 @@ import { NgForm } from '@angular/forms';
 })
 export class NewPostComponent implements OnInit {
 
+constructor(private postService: PostService,private router: Router) { }
 
-
- constructor(private postService: PostService,private router: Router) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 onSubmit(form: NgForm) {
     const titre = form.value['titre'];
@@ -24,12 +21,6 @@ onSubmit(form: NgForm) {
     const newPost = new Post(titre,contenu);
     this.postService.addPost(newPost);
     this.router.navigate(['/posts']);
-   
-    /*console.log(titre);
-    console.log(contenu);*/
-}
-
-
-
+  }
 
 }

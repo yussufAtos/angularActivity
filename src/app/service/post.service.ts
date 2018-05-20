@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostService {
 
-    text: string = 'Aux débuts du développement web, seul le HTML permet de créer des sites. Les sites web en 1990 ressemblent à des documents texte,';
+text: string = 'Aux débuts du développement web, seul le HTML permet de créer des sites. Les sites web en 1990 ressemblent à des documents texte,';
 private	posts: Array<Post> = [
 		new Post("Mon premier post", this.text),
 		new Post("Mon deuxième post", this.text),
@@ -48,25 +48,6 @@ addPost(post: Post) {
     this.posts.splice(i,1);
     this.savePosts();
     this.emitPostSubject();
-  }
-
-/* deletePost(post: Post) {
-     
-    const postIndex= this.posts.findIndex(
-      (bookEl) => {
-        if(bookEl === post) {
-          return true;
-        }
-      }
-    );
- console.log(postIndex);
-   /* this.posts.splice(postIndex, 1);
-    this.savePosts();
-    this.emitPostSubject();*/
-/*  }*/
-  
-
-
-
+  }  
 
 }

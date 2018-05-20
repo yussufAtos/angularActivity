@@ -18,19 +18,15 @@ export class PostListItemComponent implements OnInit {
 
 constructor(private postService: PostService ,private router: Router) { }
 
-ngOnInit() {
-
-}
+ngOnInit() {}
 
 compterYes(): void {
   	this.post.loveIts++;
-   /* this.postService.emitPostSubject();*/
-  }
+     }
 
   compterNo(): void {
   	this.post.loveIts--;
-    /*this.postService.emitPostSubject();*/
-  }
+    }
 
   getColor(): string {
     if (this.post.loveIts >0) {
@@ -43,10 +39,7 @@ compterYes(): void {
 onDelete(){
   this.postService.deletePost(this.index);
   this.router.navigate(['/posts']);
-  
-/*  console.log(this.index);*/
-
-}
+  }
 
 
 

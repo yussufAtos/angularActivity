@@ -16,13 +16,10 @@ export class PostViewComponent implements OnInit {
  constructor(private postService: PostService) { }
 
 ngOnInit() {
-
-
-    this.postSubscription = this.postService.postsSubject.subscribe(
+this.postSubscription = this.postService.postsSubject.subscribe(
       (mesPosts: Post[]) => {
         this.posts = mesPosts;
-        /*console.log(this.posts);*/
-      }
+        }
     );
     this.postService.emitPostSubject();
   }

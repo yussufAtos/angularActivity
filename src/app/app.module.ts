@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-/*import { HttpModule } from '@angular/http';*/
 import { PostService } from './service/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -13,8 +12,8 @@ import { PostViewComponent } from './post-view/post-view.component';
 
 const appRoutes: Routes = [
 { path: 'posts',  component: PostViewComponent },
- { path: '',  component: PostViewComponent },
-  { path: 'new',  component: NewPostComponent } 
+{ path: '',  component: PostViewComponent },
+{ path: 'new',  component: NewPostComponent } 
 
 ];
 
@@ -31,8 +30,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    /*HttpModule,*/
-     HttpClientModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [PostService],

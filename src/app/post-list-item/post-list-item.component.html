@@ -5,11 +5,9 @@
 	<div [ngStyle]="{color: getColor()}" style="margin-bottom: 25px;">
 		<h3 class="text-left">{{ post.title }}</h3>
 		
-		<h5 class="pull-right" style="margin-top:-2em;"><!-- {{ post.created_at | date: 'short' }} -->
-
-{{ post.created_at | date: 'dd/MM/y, HH:mm a' }}
-
-		</h5>
+		<h5 class="pull-right" style="margin-top:-2em;">
+         {{ post.created_at | date: 'dd/MM/y, HH:mm a' }}
+        </h5>
 		<p class="text-justify">{{ post.content }}</p>
 	</div>
 
@@ -21,5 +19,6 @@
      <button class="btn btn-danger" (click)= "onDelete()">Supprimer</button>
 
 </div>
-	 <span class="pull-right bg-primary" style="padding:7px;" *ngIf="post.loveIts !== 0">{{ post.loveIts }}</span>
+	 <span class="pull-right bg-primary" style="padding:7px;" *ngIf="post.loveIts !== 0">
+	 {{ post.loveIts }}</span>
  </li>
