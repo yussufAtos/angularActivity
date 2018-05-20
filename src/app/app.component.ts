@@ -1,19 +1,29 @@
 import { Component } from '@angular/core';
-import { Post } from './post';
-
-@Component({
+/*import { PostService } from './service/post.service';
+import { Post } from './models/post';
+import { Subscription } from 'rxjs';
+*/@Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: []
 })
 export class AppComponent {
 
-	constructor() {}
+/* posts:Post[];
+ postSubscription: Subscription;
 
-	text: string = 'Aux débuts du développement web, seul le HTML permet de créer des sites. Les sites web en 1990 ressemblent à des documents texte,';
-	posts: Array<Post> = [
-		new Post("Mon premier post", this.text),
-		new Post("Mon deuxième post", this.text),
-		new Post("Mon troisième post", this.text)
-	];
+ constructor(private postService: PostService) { }
+
+ngOnInit() {
+
+
+    this.postSubscription = this.postService.postsSubject.subscribe(
+      (mesPosts: Post[]) => {
+        this.posts = mesPosts;
+        console.log(this.posts);
+      }
+    );
+    this.postService.emitAppareilSubject();
+  }*/
+
 }

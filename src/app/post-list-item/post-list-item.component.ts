@@ -1,23 +1,35 @@
-import { Component,Input } from '@angular/core';
-import { Post } from '../post'
+import { Component,Input ,OnInit} from '@angular/core';
+import { Post } from '../models/post';
+import { PostService } from '../service/post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list-item',
   templateUrl: './post-list-item.component.html',
   styleUrls: ['./post-list-item.component.css']
 })
-export class PostListItemComponent {  
+export class PostListItemComponent implements OnInit {  
+  
+ @Input() 
+  index:number;
   @Input() 
   post: Post;
 
-  constructor() {}
 
-  compterYes(): void {
+constructor(private postService: PostService ,private router: Router) { }
+
+ngOnInit() {
+
+}
+
+compterYes(): void {
   	this.post.loveIts++;
+   /* this.postService.emitPostSubject();*/
   }
 
   compterNo(): void {
   	this.post.loveIts--;
+    /*this.postService.emitPostSubject();*/
   }
 
   getColor(): string {
@@ -28,6 +40,13 @@ export class PostListItemComponent {
   }
 }
 
+onDelete(){
+  this.postService.deletePost(this.index);
+  this.router.navigate(['/posts']);
+  
+/*  console.log(this.index);*/
+
+}
 
 
 
