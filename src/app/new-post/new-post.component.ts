@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../service/post.service';
 import { Router } from '@angular/router';
 import { Post } from '../models/post';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Validators} from '@angular/forms';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
@@ -10,17 +11,32 @@ import { NgForm } from '@angular/forms';
 })
 export class NewPostComponent implements OnInit {
 
-constructor(private postService: PostService,private router: Router) { }
+postForm: FormGroup;
 
-  ngOnInit() {}
+  constructor(private formBuilder: FormBuilder,
+              private postService: PostService,
+              private router: Router) { }
 
-onSubmit(form: NgForm) {
-    const titre = form.value['titre'];
-    const contenu = form.value['contenu'];
- 
-    const newPost = new Post(titre,contenu);
+ngOnInit() {
+    this.initForm();
+   }
+
+   initForm() {
+    this.postForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      content: ['', Validators.required]
+ });
+}
+
+  onSubmitForm() {
+    const formValue = this.postForm.value;
+    const newPost = new Post(
+      formValue['title'],
+      formValue['content']
+    );
     this.postService.addPost(newPost);
     this.router.navigate(['/posts']);
   }
+
 
 }

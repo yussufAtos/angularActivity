@@ -41,8 +41,4 @@ onDelete(){
   this.router.navigate(['/posts']);
   }
 
-
-
-
-
 }

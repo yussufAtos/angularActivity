@@ -44,7 +44,6 @@ addPost(post: Post) {
   }
 
   deletePost(i:number){
-    console.log(this.posts[i].loveIts)
     this.posts.splice(i,1);
     this.savePosts();
     this.emitPostSubject();

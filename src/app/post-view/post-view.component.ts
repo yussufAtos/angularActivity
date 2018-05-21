@@ -24,4 +24,8 @@ this.postSubscription = this.postService.postsSubject.subscribe(
     this.postService.emitPostSubject();
   }
 
+  ngOnDestroy() {
+    this.postSubscription.unsubscribe();
+  }
+
 }
